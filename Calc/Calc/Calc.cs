@@ -12,7 +12,7 @@ namespace Calc
         Polynomial Pol2 = new Polynomial();
         public void Sum()
         {
-            return (привет Лиза и Даня)
+            return (test again)
         }
     }
 }

@@ -8,11 +8,32 @@ namespace Calc
 {
     class Calc
     {
-        Polynomial Pol1 = new Polynomial();
-        Polynomial Pol2 = new Polynomial();
-        public void Sum()
+        public Polynomial Summa(Polynomial a, Polynomial b, int headPow)
         {
-            return (Spasibo Lene);
+            Polynomial sum = new Polynomial(headPow);
+            sum = a + b;
+            return sum;
         }
+        public Polynomial Raznost(Polynomial a, Polynomial b, int headPow)
+        {
+            Polynomial raznost = new Polynomial(headPow);
+            raznost = a - b;
+            return raznost;
+        }
+        public Polynomial Multiply(Polynomial a, Polynomial b, int headPow)
+        {
+            Polynomial multi = new Polynomial(headPow);
+            multi = a * b;
+            return multi;
+        }
+        public Polynomial Multiply(Polynomial a, double b, int headPow)
+        {
+            Polynomial multi = new Polynomial(headPow);
+            multi = a * b;
+            return multi;
+        }
+       // public Polynomial Deriv(Polynomial a, Polynomial b, int headPow)
+      //  {
+       // }
     }
 }

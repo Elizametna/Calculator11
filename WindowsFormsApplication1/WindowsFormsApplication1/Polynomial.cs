@@ -24,6 +24,10 @@ namespace Calc
         /// </summary>
         /// <param name="headPow">Старшая степень полинома</param>
         /// 
+        public Polynomial()
+        {
+            
+        }
         public Polynomial(int headPow)
         {
             _array = new List<double>(headPow);
@@ -184,7 +188,13 @@ namespace Calc
 
             return resultPoly;
         }
-
+        public static Polynomial operator /(Polynomial poly1, double k)
+        {
+            Polynomial resultPoly = new Polynomial(poly1.LineCoefficients);
+            for (int i = 0; i < poly1.HeadPow; i++)
+                resultPoly[i] /= k;
+            return resultPoly;
+        }
 
 
         public static Polynomial operator ^(Polynomial poly1, double k)

@@ -32,8 +32,9 @@ namespace Calc
             multi = a * b;
             return multi;
         }
-       // public Polynomial Deriv(Polynomial a, Polynomial b, int headPow)
-      //  {
+        // public Polynomial Deriv(Polynomial a, Polynomial b, int headPow)
+        //  {
+        Marsel, priyatnogo appetita;
        // }
     }
 }

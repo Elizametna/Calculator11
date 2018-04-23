@@ -32,9 +32,22 @@ namespace Calc
             multi = a * b;
             return multi;
         }
-        // public Polynomial Deriv(Polynomial a, Polynomial b, int headPow)
-        //  {
-        Marsel, priyatnogo appetita;
-       // }
+        public Polynomial Multiply(double a, Polynomial b, int headPow)
+        {
+            Polynomial multi = new Polynomial(headPow);
+            multi = a * b;
+            return multi;
+        }
+        public void Division(Polynomial a, Polynomial b, ref double[] quotient, ref double[] remainder )
+        {
+            Polynomial.Division(a, b, ref quotient, ref remainder);
+        }
+        public Polynomial Stepen(Polynomial a, int b, int headPow)
+        {
+            Polynomial vozvedenie = new Polynomial(headPow);
+            vozvedenie = a ^ b;
+            return vozvedenie;
+        }
+
     }
 }

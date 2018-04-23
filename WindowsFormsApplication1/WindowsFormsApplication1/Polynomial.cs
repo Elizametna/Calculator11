@@ -170,6 +170,13 @@ namespace Calc
 
             return resultPoly;
         }
+        public static Polynomial operator *(double k, Polynomial poly1)
+        {
+            Polynomial resultPoly = new Polynomial(poly1.LineCoefficients);
+            for (int i = 0; i < poly1.HeadPow; i++)
+                resultPoly[i] *= k;
+            return resultPoly;
+        }
 
         /// <summary>
         /// Перемножает между собой два полинома
@@ -188,16 +195,9 @@ namespace Calc
 
             return resultPoly;
         }
-        public static Polynomial operator /(Polynomial poly1, double k)
-        {
-            Polynomial resultPoly = new Polynomial(poly1.LineCoefficients);
-            for (int i = 0; i < poly1.HeadPow; i++)
-                resultPoly[i] /= k;
-            return resultPoly;
-        }
 
 
-        public static Polynomial operator ^(Polynomial poly1, double k)
+        public static Polynomial operator ^(Polynomial poly1, int k)
         {
             Polynomial resultPoly = new Polynomial(poly1.HeadPow + poly1.HeadPow - 1);
             resultPoly._array.Select(x => 0);
@@ -210,39 +210,10 @@ namespace Calc
 
             return resultPoly;
         }
-
-        /// <summary>
-        /// Вычисляет производную от полинома
-        /// </summary>
-        /// <returns>Произвдная</returns>
-        public Polynomial Derivative()
+        public static void Division(Polynomial poly1, Polynomial poly2, ref double[] quotient, ref double[] remainder)
         {
-            Polynomial result = new Polynomial(this.LineCoefficients);
-
-            for (int i = 0; i < this.HeadPow - 1; i++)
-                result[i] = result[i + 1] * (i + 1);
-
-            result._array.RemoveAt(result.HeadPow - 1);
-
-            if (result._array.Count == 0) result._array.Add(0);
-
-            return result;
-        }
-
-        /// <summary>
-        /// Преобразует полином в строку
-        /// </summary>
-        /// <returns>Текстовой представление полинома</returns>
-        /// 
-
-
-
-        public void Division(Polynomial poly1, Polynomial poly2, ref double[] quotient, ref double[] remainder)
-        {
-            double res = this[0];
             Polynomial resultPoly = new Polynomial(poly1.HeadPow + poly2.HeadPow - 1);
             resultPoly._array.Select(x => 0);
-
             for (int i = 0; i < quotient.Length; i++)
             {
                 double coeff = remainder[remainder.Length - i - 1] / poly2[poly2.HeadPow];
@@ -254,11 +225,11 @@ namespace Calc
             }
 
         }
-
-
-
-
-
+        /// <summary>
+        /// Преобразует полином в строку
+        /// </summary>
+        /// <returns>Текстовой представление полинома</returns>
+        /// 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -292,10 +263,8 @@ namespace Calc
         public double GetSolution(double x)
         {
             double res = this[0];
-
-            for (int i = 1; i < this.HeadPow; i++)
+            for (int i = 1; i < HeadPow; i++)
                 res += this[i] * Math.Pow(x, i);
-
             return res;
         }
 

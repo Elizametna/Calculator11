@@ -12,7 +12,7 @@ namespace Calc
         Polynomial Pol2 = new Polynomial();
         public void Sum()
         {
-            return (test again)
+            return (Spasibo Lene);
         }
     }
 }
